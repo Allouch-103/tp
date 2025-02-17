@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Word</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        p {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <p id="text">Test</p>
+    <div class="container">
+        <input type="color" id="colorPicker">
+        <input type="number" id="fontSize" min="10" max="100" value="30">
+        <select id="fontFamily">
+            <option value="Arial">Arial</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Courier New">Courier New</option>
+            <option value="Times New Roman">Times New Roman</option>
+        </select>
+    </div>
+    
+    <script>
+        const text = document.getElementById("text");
+        const colorPicker = document.getElementById("colorPicker");
+        const fontSize = document.getElementById("fontSize");
+        const fontFamily = document.getElementById("fontFamily");
+
+        function updateStyle() {
+            text.style.color = colorPicker.value;
+            text.style.fontSize = fontSize.value + "px";
+            text.style.fontFamily = fontFamily.value;
+        }
+
+        colorPicker.addEventListener("input", updateStyle);
+        fontSize.addEventListener("input", updateStyle);
+        fontFamily.addEventListener("change", updateStyle);
+    </script>
+</body>
+</html>
